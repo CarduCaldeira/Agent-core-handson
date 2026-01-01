@@ -89,12 +89,17 @@
             "Sid": "IAMRoleManagement",
             "Effect": "Allow",
             "Action": [
+                "iam:CreatePolicy",        
+                "iam:DeletePolicy",        
                 "iam:PassRole",
                 "iam:CreateRole",
+                "iam:DeleteRole",
                 "iam:GetRole",
                 "iam:AttachRolePolicy",
+                "iam:DetachRolePolicy",
                 "iam:PutRolePolicy",
-                "iam:ListRoles"
+                "iam:ListRoles",
+                "iam:ListPolicies"
             ],
             "Resource": "*"
         },
