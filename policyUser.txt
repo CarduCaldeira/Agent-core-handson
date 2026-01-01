@@ -1,0 +1,120 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "BedrockFullAccessAndConfiguration",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AgentCoreRuntime",
+            "Effect": "Allow",
+            "Action": [
+                "bedrock-agentcore:*"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ECRAccess",
+            "Effect": "Allow",
+            "Action": [
+                "ecr:GetAuthorizationToken",
+                "ecr:BatchCheckLayerAvailability",
+                "ecr:GetDownloadUrlForLayer",
+                "ecr:BatchGetImage",
+                "ecr:DescribeImages",
+                "ecr:DescribeRepositories",
+                "ecr:CreateRepository",
+                "ecr:InitiateLayerUpload",
+                "ecr:UploadLayerPart",
+                "ecr:CompleteLayerUpload",
+                "ecr:PutImage"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "CloudWatchLogsAccess",
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+                "logs:GetLogEvents",
+                "logs:DescribeLogGroups",
+                "logs:DescribeLogStreams"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Sid": "CloudWatchObservability",
+            "Effect": "Allow",
+            "Action": [
+                "cloudwatch:PutMetricData",
+                "cloudwatch:GetMetricData",
+                "cloudwatch:GetMetricStatistics",
+                "cloudwatch:ListMetrics"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "S3Access",
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket",
+                "s3:CreateBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::*"
+            ]
+        },
+        {
+            "Sid": "CodeBuildAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codebuild:StartBuild",
+                "codebuild:BatchGetBuilds",
+                "codebuild:BatchGetProjects",
+                "codebuild:CreateProject",
+                "codebuild:DeleteProject",
+                "codebuild:UpdateProject"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "IAMRoleManagement",
+            "Effect": "Allow",
+            "Action": [
+                "iam:PassRole",
+                "iam:CreateRole",
+                "iam:GetRole",
+                "iam:AttachRolePolicy",
+                "iam:PutRolePolicy",
+                "iam:ListRoles"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "STSAccess",
+            "Effect": "Allow",
+            "Action": [
+                "sts:GetCallerIdentity",
+                "sts:AssumeRole"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "XRayTracingAccess",
+            "Effect": "Allow",
+            "Action": [
+                "xray:PutTraceSegments",
+                "xray:PutTelemetryRecords"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
