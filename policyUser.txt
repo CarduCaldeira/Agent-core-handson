@@ -107,6 +107,7 @@
             "Sid": "IAMRoleManagement",
             "Effect": "Allow",
             "Action": [
+                "iam:CreateServiceLinkedRole",  
                 "iam:PassRole",
                 "iam:GetRole",
                 "iam:CreateRole",

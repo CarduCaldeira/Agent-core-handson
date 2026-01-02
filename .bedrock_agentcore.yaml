@@ -13,8 +13,8 @@ agents:
       execution_role_auto_create: true
       account: '249127818475'
       region: sa-east-1
-      ecr_repository: null
-      ecr_auto_create: true
+      ecr_repository: 249127818475.dkr.ecr.sa-east-1.amazonaws.com/bedrock-agentcore-test
+      ecr_auto_create: false
       s3_path: null
       s3_auto_create: false
       network_configuration:
@@ -32,17 +32,17 @@ agents:
       agent_arn: null
       agent_session_id: null
     codebuild:
-      project_name: null
-      execution_role: null
-      source_bucket: null
+      project_name: bedrock-agentcore-test-builder
+      execution_role: arn:aws:iam::249127818475:role/AmazonBedrockAgentCoreSDKCodeBuild-sa-east-1-9f86d08188
+      source_bucket: bedrock-agentcore-codebuild-sources-249127818475-sa-east-1
     memory:
       mode: STM_ONLY
-      memory_id: null
-      memory_arn: null
-      memory_name: test_memory
+      memory_id: test_mem-K8sqDZ5ZIT
+      memory_arn: arn:aws:bedrock-agentcore:sa-east-1:249127818475:memory/test_mem-K8sqDZ5ZIT
+      memory_name: test_mem
       event_expiry_days: 30
-      first_invoke_memory_check_done: false
-      was_created_by_toolkit: false
+      first_invoke_memory_check_done: true
+      was_created_by_toolkit: true
     identity:
       credential_providers: []
       workload: null
