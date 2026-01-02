@@ -63,7 +63,9 @@
             "Action": [
                 "s3:GetObject",
                 "s3:PutObject",
-                "s3:ListBucket"
+                "s3:ListBucket",
+                "s3:PutLifecycleConfiguration",
+                "s3:GetLifecycleConfiguration"
             ],
             "Resource": [
                 "arn:aws:s3:::*"

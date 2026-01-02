@@ -2,7 +2,7 @@
     "Version": "2012-10-17",
     "Statement": [
         {
-            "Sid": "BedrockFullAccessAndConfiguration",
+            "Sid": "BedrockFullAccess",
             "Effect": "Allow",
             "Action": [
                 "bedrock:*"
@@ -18,7 +18,7 @@
             "Resource": "*"
         },
         {
-            "Sid": "ECRAccess",
+            "Sid": "ECRFullAccess",
             "Effect": "Allow",
             "Action": [
                 "ecr:GetAuthorizationToken",
@@ -28,10 +28,24 @@
                 "ecr:DescribeImages",
                 "ecr:DescribeRepositories",
                 "ecr:CreateRepository",
+                "ecr:DeleteRepository",
+                "ecr:SetRepositoryPolicy",
+                "ecr:GetRepositoryPolicy",
                 "ecr:InitiateLayerUpload",
                 "ecr:UploadLayerPart",
                 "ecr:CompleteLayerUpload",
-                "ecr:PutImage"
+                "ecr:PutImage",
+                "ecr:ListImages",
+                "ecr:TagResource"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "ECSAndAutoscalingFullAccess",
+            "Effect": "Allow",
+            "Action": [
+                "ecs:*",
+                "application-autoscaling:*"
             ],
             "Resource": "*"
         },
@@ -44,7 +58,8 @@
                 "logs:PutLogEvents",
                 "logs:GetLogEvents",
                 "logs:DescribeLogGroups",
-                "logs:DescribeLogStreams"
+                "logs:DescribeLogStreams",
+                "logs:TagResource"
             ],
             "Resource": "arn:aws:logs:*:*:*"
         },
@@ -66,7 +81,10 @@
                 "s3:GetObject",
                 "s3:PutObject",
                 "s3:ListBucket",
-                "s3:CreateBucket"
+                "s3:CreateBucket",
+                "s3:PutLifecycleConfiguration",
+                "s3:GetLifecycleConfiguration",
+                "s3:GetBucketLocation"
             ],
             "Resource": [
                 "arn:aws:s3:::*"
@@ -89,17 +107,19 @@
             "Sid": "IAMRoleManagement",
             "Effect": "Allow",
             "Action": [
-                "iam:CreatePolicy",        
-                "iam:DeletePolicy",        
                 "iam:PassRole",
+                "iam:GetRole",
                 "iam:CreateRole",
                 "iam:DeleteRole",
-                "iam:GetRole",
                 "iam:AttachRolePolicy",
                 "iam:DetachRolePolicy",
                 "iam:PutRolePolicy",
+                "iam:DeleteRolePolicy",
+                "iam:CreatePolicy",
+                "iam:DeletePolicy",
                 "iam:ListRoles",
-                "iam:ListPolicies"
+                "iam:ListPolicies",
+                "iam:TagRole"
             ],
             "Resource": "*"
         },
